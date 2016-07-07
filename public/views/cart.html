@@ -1,0 +1,12 @@
+<section class="cart">
+	<div class="col-md-3 cart">
+	<div ng-repeat="product in cart.items">{{product.product.title}}
+	<img ng-src="{{product.product.picture}}">
+	</div>
+
+
+
+		<span>Total={{cart.total}}</span>
+
+	</div>
+</section>

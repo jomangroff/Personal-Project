@@ -1,0 +1,10 @@
+
+.three-left {
+ 	height: 580px;
+ 	justify-content: flex-end;
+	flex-wrap: wrap;
+ }
+
+.col-md-3 img{
+
+}

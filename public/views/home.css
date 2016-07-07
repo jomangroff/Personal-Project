@@ -1,0 +1,14 @@
+.main-pic img{
+	width: 100%;
+}
+
+.three-container {
+	display: flex;
+	/*width: 30%;*/
+	height: 600px;
+	background-color: white;
+}
+
+.third {
+	width: calc(100% / 3);
+}

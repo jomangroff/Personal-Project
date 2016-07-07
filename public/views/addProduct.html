@@ -1,0 +1,17 @@
+
+<input type="text" ng-model="newProduct.title">Title
+<textarea ng-model="newProduct.description"></textarea>Description
+<input type="number" ng-model="newProduct.price">
+<select ng-model="newProduct.category">
+	<option value="Men">Men</option>
+	<option value="Women">Women</option>
+	<option value="Kids">Kids</option>
+</select>
+<input type="text" ng-model="newProduct.picture">Picture of Product
+<button type="button" ng-click="createProduct(newProduct)">Add Product</button>
+
+<!-- 	title: {type: String, unique: true, required: true},
+	description: {type: String, required: true},
+	price: {type: Number, required: true, min: 0},
+	category: {type: String, required: true},
+	picture: {type: String} -->

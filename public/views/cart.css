@@ -1,0 +1,10 @@
+.cart {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 600px;
+}
+
+.col-md-3 cart {
+	height: 580px;
+}

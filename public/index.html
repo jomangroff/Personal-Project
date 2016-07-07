@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html ng-app='protest'>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel='stylesheet' href="./bundle.css">
+
+
+<head>
+
+	<title></title>
+
+</head>
+
+
+<body>
+
+<header class ='header'>
+	<div class='menu'><a ui-sref='product'><img src="d"></a></div>
+	<div class='men'><a ui-sref='men'>MEN</a></div>
+	<div class='men'><a ui-sref='women'>WOMEN</a></div>
+	<div class='men'><a ui-sref='kids'>KIDS</a></div>
+	<div class='logo'><a ui-sref='home'><img src="./images/protestLogo.jpeg"></a></div>
+	<div class='login'><a ui-sref='login'>Log-In</a></div>
+</header>
+
+<ui-view></ui-view>
+
+
+<footer class ='footer'>
+	<section class='container'>
+	<div class='row'>
+		<div class='col-md-10'>
+		<div class='col-md-3'>
+			<p>FAQ</p><br>
+			<p>DELIVERY</p><br>
+			<p>RETURNS</p>
+		</div>
+		<div class='col-md-3'>
+			<p>PAYMENT</p><br>
+			<p>TERMS</p><br>
+			<p>STORE LOCATOR</p>
+		</div>
+
+		<div class='col-md-3'>
+			<p>ACADEMIES</p><br>
+			<p>CAREERS</p><br>
+			<p>ABOUT</p>
+		</div>
+
+		<div class='col-md-3'>
+			<p>CONTACT</p><br>
+			<p>BRAND PORTAL</p><br>
+			<p>B2B WEBSHOP</p>
+		</div>
+		</div>
+			<div class='col-md-2'>
+			<p>COUNTRY</p><br>
+			<p>I live in Another Country</p><br>
+			<p>and I speak English</p>
+			</div>
+	</div>
+	</section>
+
+	<div class='line'></div>
+
+	<section class="container">
+		<div class="col-md-4">
+		<ul>
+			<li>FOLLOW US</li>
+			<li>LIST OF IMAGES</li>
+		</ul>
+		</div>
+		<div class="col-md-4">
+		<ul>
+			<li>2016 DEKKER OLIFANTA BV / PROTEST</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+		<ul>
+			<li>STAY WITH US:</li>
+			<li>SUBSCRIBE BOX</li>
+			</ul>
+		</div>
+
+	</section>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+<script src='./bundle.js'></script>
+
+</body>
+
+
+</html>
