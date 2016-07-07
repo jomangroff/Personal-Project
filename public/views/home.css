@@ -3,12 +3,14 @@
 }
 
 .three-container {
-	display: flex;
+	display: block;
 	/*width: 30%;*/
 	height: 600px;
 	background-color: white;
+	margin-left: 175px;
 }
 
 .third {
 	width: calc(100% / 3);
+	float: left;
 }

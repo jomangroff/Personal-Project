@@ -1,7 +1,7 @@
 
 <div class="three-left">
 
-	<a href="link"><img src="{{product.picture}}"></a>
+	<a ui-sref="product({id: product._id})"><img src="{{product.picture}}"></a>
 	<p>{{product.description}}</p>
 		<span>{{product.price}}</span>
 		<button ng-click="addToCart(product)">Add to Cart</button>

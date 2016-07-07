@@ -1,20 +1,26 @@
 <section class="product-main">
 <div class="top-section">
 	<div class="quick-views">
-	<img src="./images/2720561_340-lbox-80x80-fff.jpeg">
-	<img src="./images/2720561_340_model1-lbox-80x80-fff.jpeg">
+	<!-- <img ng-click="image='./images/2720561_340-lbox-80x80-fff.jpeg'" src="./images/2720561_340-lbox-80x80-fff.jpeg">
+	<img ng-click="image='./images/2720561_340_model1-lbox-80x80-fff.jpeg'" src="./images/2720561_340_model1-lbox-80x80-fff.jpeg">
 	<img src="./images/2720561_340_model2-lbox-80x80-fff.jpeg">
-	<img src="./images/2720561_340_model3-lbox-80x80-fff.jpeg">
+	<img src="./images/2720561_340_model3-lbox-80x80-fff.jpeg"> -->
+
+	<div ng-repeat="sideImage in product.sideImages track by $index">
+		<img ng-click="changeImage(sideImage)" src="{{sideImage}}">
+	</div>
+
+
 	</div>
 
 	<div class='big-view'>
-	<img src="./images/2720561_340.jpeg">
+	<img src="{{image}}">
 	</div>
 
 	<div class="info-right">
-	<h3>Item</h3>
-	<p>Price</p>
-	<button>Add to Cart</button>
+	<h3>{{product.title}}</h3>
+	<p>{{product.price}}</p>
+	<button ng-click="addToCart(product)">Add to Cart</button>
 	</div>
 
 </div>

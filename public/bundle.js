@@ -30,7 +30,7 @@ angular.module('protest', ['ui.router'])
 			controller: 'kidsCtrl'
 		})
 		.state('product', {
-			url: '/product/:type', // /product/women , /product/men
+			url: '/product/:id', // /product/women , /product/men
 			templateUrl: './views/product.html',
 			controller: 'productCtrl'
 		})
@@ -72,19 +72,44 @@ angular.module('protest')
 				console.log(123456, response);
 			})
 			$scope.addToCart = function(product){
-				console.log(product);
 				cartSrv.addToCart(product);
 		  	return product;
 		  }
+			// $scope.getProductByCategory = function(product){
+			// 	console.log(product);
+			// 	return product;
+			// }
+
+	});
+
+	//   this.getProductByCategory = function(category){
+		// 	return $http({
+		// 		method: "GET",
+		// 		url: "/api/product?category=" + category
+		// 	}).then(function(response){
+		// 		console.log(response.data);
+		// 		return response.data;
+		// 	})
+		// }
+
+angular.module('protest')
+	.controller('kidsCtrl', function($scope, productSrv, cartSrv, authService){
+			// productSrv.getProducts().then(function(response){
+			// 	$scope.products = response;
+			// 	console.log(123456, response);
+			// })
+			$scope.addToCart = function(product){
+				// console.log(product);
+				cartSrv.addToCart(product);
+		  	return product;
+		  }
+		  productSrv.getProductByCategory("Kids").then(function(response){
+					$scope.products = response;
+					console.log(987, response);
+				})
 
 			// $scope.products = productSrv.getAllProducts();
 	});
-angular.module('protest')
-	.controller('kidCtrl', function($scope, kidSrv){
-			// mainSrv.getAllProducts().then(function(response){
-			// 	$scope.products = response;
-			// })
-	})
  angular.module("protest").controller("loginCtrl", function($scope, authService, $state) {
 
   $scope.login = function(user) {
@@ -120,17 +145,35 @@ angular.module('protest')
   };
  });
 angular.module('protest')
-	.controller('menCtrl', function($scope, menSrv){
-			// mainSrv.getAllProducts().then(function(response){
-			// 	$scope.products = response;
-			// })
-	})
+	.controller('menCtrl', function($scope, productSrv, cartSrv, authService){
+				$scope.addToCart = function(product){
+				// console.log(product);
+				cartSrv.addToCart(product);
+		  	return product;
+		  }
+		  productSrv.getProductByCategory("Men").then(function(response){
+					$scope.products = response;
+					console.log(987, response);
+				})
+
+			// $scope.products = productSrv.getAllProducts();
+	});
 angular.module('protest')
-	.controller('productCtrl', function($scope, productSrv){
+	.controller('productCtrl', function($scope, productSrv, $stateParams, cartSrv){
 			// productSrv.getProducts().then(function(response){
 			// 	$scope.products = response;
 			// 	console.log(12356, response);
 			// })
+			$scope.newProduct = {};
+			$scope.newProduct.sideImages = [];
+			$scope.changeImage = function(url){
+				$scope.image = url;
+			}
+			$scope.addToCart = function(product){
+				console.log(product);
+				cartSrv.addToCart(product);
+		  	return product;
+		  }
 
 			$scope.createProduct = function(product){
 				productSrv.createProduct(product).then(function(response){
@@ -138,14 +181,34 @@ angular.module('protest')
 				})
 			}
 
-
+			$scope.getOneProduct = function(){
+				productSrv.getOneProduct($stateParams.id).then(function(response){
+					console.log(response);
+					$scope.product = response;
+					$scope.image = response.picture;
+				})
+			}
+			$scope.getOneProduct();
 	})
 angular.module('protest')
-	.controller('womenCtrl', function($scope, womenSrv){
-			// mainSrv.getAllProducts().then(function(response){
+	.controller('womenCtrl', function($scope, productSrv, cartSrv, authService){
+			// productSrv.getProducts().then(function(response){
 			// 	$scope.products = response;
+			// 	console.log(123456, response);
 			// })
-	})
+			$scope.addToCart = function(product){
+				// console.log(product);
+				cartSrv.addToCart(product);
+		  	return product;
+		  }
+
+		  productSrv.getProductByCategory("Women").then(function(response){
+					$scope.products = response;
+					console.log(987, response);
+				})
+
+			// $scope.products = productSrv.getAllProducts();
+	});
 angular.module('protest').directive('loginDir', function() {
   return {
     restrict: 'EA',
@@ -289,7 +352,7 @@ angular.module('protest')
 		// }
 	})
 angular.module('protest')
-	.service('kidSrv', function($http){
+	.service('kidsSrv', function($http){
 		// this.getAllProducts = function(){
 		// 	return $http({
 		// 		method: "GET",
@@ -379,7 +442,7 @@ angular.module('protest')
 		}
 	})
 angular.module('protest')
-	.service('productSrv', function($http){
+	.service('productSrv', function($http, $stateParams){
 		// this.getAllProducts = function(){
 		// 	return $http({
 		// 		method: "GET",
@@ -407,6 +470,16 @@ angular.module('protest')
 				url: "/api/product/" + id,
 				data: product
 			}).then(function(response){
+				console.log(response.data);
+				return response.data;
+			})
+		}
+
+		this.getOneProduct = function(id, product) {
+			return $http({
+				method: "GET",
+				url: "/api/product/" + id,
+			}).then(function(response) {
 				console.log(response.data);
 				return response.data;
 			})

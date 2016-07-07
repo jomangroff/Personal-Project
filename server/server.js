@@ -66,6 +66,7 @@ app.post('/api/product', productCtrl.create);
 app.get('/api/product', productCtrl.read);
 // app.get('/api/product',)
 // app.get('/api/product')
+app.get('/api/product/:id', productCtrl.show);
 app.put('/api/product/:id', productCtrl.update);
 app.delete('/api/product/:id', productCtrl.destroy);
 

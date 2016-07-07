@@ -5,10 +5,22 @@ angular.module('protest')
 				console.log(123456, response);
 			})
 			$scope.addToCart = function(product){
-				console.log(product);
 				cartSrv.addToCart(product);
 		  	return product;
 		  }
+			// $scope.getProductByCategory = function(product){
+			// 	console.log(product);
+			// 	return product;
+			// }
 
-			// $scope.products = productSrv.getAllProducts();
 	});
+
+	//   this.getProductByCategory = function(category){
+		// 	return $http({
+		// 		method: "GET",
+		// 		url: "/api/product?category=" + category
+		// 	}).then(function(response){
+		// 		console.log(response.data);
+		// 		return response.data;
+		// 	})
+		// }

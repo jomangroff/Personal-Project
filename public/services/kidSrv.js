@@ -1,5 +1,5 @@
 angular.module('protest')
-	.service('kidSrv', function($http){
+	.service('kidsSrv', function($http){
 		// this.getAllProducts = function(){
 		// 	return $http({
 		// 		method: "GET",

@@ -4,7 +4,7 @@ module.exports = {
 		update: function(req, res, next){
 			Product.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
 				if (error){
-					res.status(500).json(err);
+					res.status(500).json(error);
 				} else {
 					res.status(200).json(response);
 				}
@@ -23,10 +23,20 @@ module.exports = {
 	read: function(req,res) {
 		Product.find(req.query, function(error, response) {
 			if(error){
-				res.status(500).send(err);
+				res.status(500).send(error);
 			} else {
 				res.status(200).send(response);
 			}
+		})
+	},
+
+	show: function(req, res) {
+		Product.findById(req.params.id, function(err, response) {
+			if(err){
+					res.status(500).json(err);
+				} else {
+					res.status(200).json(response);
+				}
 		})
 	},
 	//read by category
@@ -42,7 +52,7 @@ module.exports = {
 	destroy: function(req, res) {
 		Product.findByIdAndRemove(req.params.user_id, function(error, response) {
 			if(error){
-				res.status(500).json(err);
+				res.status(500).json(error);
 			} else {
 				res.status(200).json(response);
 			}

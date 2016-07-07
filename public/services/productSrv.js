@@ -1,5 +1,5 @@
 angular.module('protest')
-	.service('productSrv', function($http){
+	.service('productSrv', function($http, $stateParams){
 		// this.getAllProducts = function(){
 		// 	return $http({
 		// 		method: "GET",
@@ -27,6 +27,16 @@ angular.module('protest')
 				url: "/api/product/" + id,
 				data: product
 			}).then(function(response){
+				console.log(response.data);
+				return response.data;
+			})
+		}
+
+		this.getOneProduct = function(id, product) {
+			return $http({
+				method: "GET",
+				url: "/api/product/" + id,
+			}).then(function(response) {
 				console.log(response.data);
 				return response.data;
 			})

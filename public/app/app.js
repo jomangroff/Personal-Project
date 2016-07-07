@@ -30,7 +30,7 @@ angular.module('protest', ['ui.router'])
 			controller: 'kidsCtrl'
 		})
 		.state('product', {
-			url: '/product/:type', // /product/women , /product/men
+			url: '/product/:id', // /product/women , /product/men
 			templateUrl: './views/product.html',
 			controller: 'productCtrl'
 		})
