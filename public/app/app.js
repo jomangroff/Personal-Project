@@ -14,9 +14,9 @@ angular.module('protest', ['ui.router'])
 			templateUrl: './views/men.html',
 			controller: 'menCtrl'
 		})
-		.state('addproduct', {
-			url: '/addproduct',
-			templateUrl: './views/addProduct.html',
+		.state('admin', {
+			url: '/admin',
+			templateUrl: './views/admin.html',
 			controller: 'productCtrl'
 		})
 		.state('women', {

@@ -14,9 +14,9 @@ angular.module('protest', ['ui.router'])
 			templateUrl: './views/men.html',
 			controller: 'menCtrl'
 		})
-		.state('addproduct', {
-			url: '/addproduct',
-			templateUrl: './views/addProduct.html',
+		.state('admin', {
+			url: '/admin',
+			templateUrl: './views/admin.html',
 			controller: 'productCtrl'
 		})
 		.state('women', {
@@ -60,10 +60,16 @@ angular.module("protest").controller("cartCtrl", function($scope, user, cartSrv)
   $scope.user = user;
   $scope.getCart = function(){
   	cartSrv.getCart().then(function(response){
-  		$scope.cart= response.data;
+  		$scope.cart = response.data;
   	})
   }
   $scope.getCart();
+
+  $scope.removeFromCart = function(cart_id, product_id){
+  	cartSrv.removeFromCart(cart_id, product_id).then(function(response){
+  		$scope.getCart();
+  	})
+  }
 });
 angular.module('protest')
 	.controller('homeCtrl', function($scope, productSrv, cartSrv, authService){
@@ -147,7 +153,7 @@ angular.module('protest')
 angular.module('protest')
 	.controller('menCtrl', function($scope, productSrv, cartSrv, authService){
 				$scope.addToCart = function(product){
-				// console.log(product);
+				console.log(product);
 				cartSrv.addToCart(product);
 		  	return product;
 		  }
@@ -324,6 +330,16 @@ angular.module("protest").service("cartSrv", function($http) {
       return response;
     }).catch(function(err){
       alert("Please Log-In");
+    })
+  }
+
+  this.removeFromCart = function(cart_id, product_id) {
+    return $http({
+      method: 'PUT',
+      url: "/api/cart/" + cart_id + "/" + product_id,
+    }).then(function(response){
+      console.log(response);
+      return response;
     })
   }
 

@@ -39,7 +39,7 @@ module.exports = {
 			.populate('items.product')
 			.exec(function(error, response) { console.log(response);
 			if(error){
-				res.status(500).json(err);
+				res.status(500).json(error);
 			} else {
 				res.status(200).json(response);
 			}
@@ -48,11 +48,39 @@ module.exports = {
 	destroy: function(req, res) {
 		cart.findByIdAndRemove(req.params.id, function(error, response) {
 			if(error){
-				res.status(500).json(err);
+				res.status(500).json(error);
 			} else {
 				res.status(200).json(response);
 			}
 		})
+	},
+
+	delete: function(req, res){
+		console.log(req.params.id, req.params.product_id)
+		cart.findOne(
+			{_id: req.params.id},
+			function(error, aCart) {
+				// console.log(response, error);
+				if(error){
+					res.status(500).json(error);
+				} else {
+					console.log(aCart);
+						for (var i = 0; i < aCart.items.length; i++) {
+							console.log("item", aCart.items[i]);
+							if(aCart.items[i]._id + "" === req.params.product_id){
+								aCart.items.splice(i, 1);
+							}
+						}
+						aCart.save(function(error, response){
+							if(error){
+				res.status(500).json(error);
+			} else {
+				res.status(200).json(response);
+			}
+						})
+
+				}
+			})
 	},
 
 	create: function(req, res) {

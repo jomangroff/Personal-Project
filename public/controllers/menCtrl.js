@@ -1,7 +1,7 @@
 angular.module('protest')
 	.controller('menCtrl', function($scope, productSrv, cartSrv, authService){
 				$scope.addToCart = function(product){
-				// console.log(product);
+				console.log(product);
 				cartSrv.addToCart(product);
 		  	return product;
 		  }

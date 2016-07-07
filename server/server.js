@@ -61,6 +61,7 @@ app.get('/api/cart/:id', cartCtrl.read);
 app.post('/api/cart', cartCtrl.create);
 app.put('/api/cart', isAuthed, cartCtrl.update);
 app.delete('/api/cart/:id', cartCtrl.destroy);
+app.put('/api/cart/:id/:product_id', cartCtrl.delete);
 
 app.post('/api/product', productCtrl.create);
 app.get('/api/product', productCtrl.read);

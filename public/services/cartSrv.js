@@ -60,6 +60,16 @@ angular.module("protest").service("cartSrv", function($http) {
     })
   }
 
+  this.removeFromCart = function(cart_id, product_id) {
+    return $http({
+      method: 'PUT',
+      url: "/api/cart/" + cart_id + "/" + product_id,
+    }).then(function(response){
+      console.log(response);
+      return response;
+    })
+  }
+
   this.getCart = function(){
     return $http({
       method: "GET",
