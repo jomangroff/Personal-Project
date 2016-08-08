@@ -2,10 +2,19 @@
 
 <html ng-app='protest'>
 	<meta charset='utf-8'>
+	<meta name="viewport" content="initial-scale=1, width-device-width">
+
+
+
+
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<link rel='stylesheet' href="./bundle.css">
 
+	<link rel='stylesheet' href="./bundle.css">
+	<!-- 	<link rel='stylesheet' href="./vendor/slick/slick.css">
+	<link rel='stylesheet' href="./vendor/slick/slick-theme.css">
 
+ -->
 <head>
 
 	<title></title>
@@ -16,15 +25,16 @@
 <body>
 
 <header class ='header'>
-	<div class='menu'><a ui-sref='cart'><img src="./images/realcart.png"></a></div>
-	<div class='men'><a ui-sref='men'>MEN</a></div>
-	<div class='men'><a ui-sref='women'>WOMEN</a></div>
-	<div class='men'><a ui-sref='kids'>KIDS</a></div>
+	<div class='menu' ui-sref='cart'><!-- <img src="./images/realcart.png"> --></div>
+	<div class='men' ui-sref='men'>MEN</div>
+	<div class='men' ui-sref='women'>WOMEN</div>
+	<div class='men' ui-sref='kids'>KIDS</div>
 	<div class='logo'><a ui-sref='home'><img src="./images/protestLogo.jpeg"></a></div>
-	<div class='login'><a ui-sref='login'>LOG-IN</a></div>
+	<div class='login' ui-sref='login'>LOG-IN</div>
 </header>
 
-<ui-view></ui-view>
+
+<ui-view ></ui-view>
 
 
 <footer class ='footer'>
@@ -64,24 +74,23 @@
 
 	<div class='line'></div>
 
-	<section class="container">
+	<section class="container footer">
 		<div class="col-md-4">
-		<ul>
-			<li>FOLLOW US</li>
-			<li>LIST OF IMAGES</li>
-		</ul>
+			<p>FOLLOW US:</p>
+			<a href='https://www.facebook.com/protestsportswear'><img src="./images/fbg.svg"></a>
+			<a href='https://twitter.com/ProtestSports'><img src="./images/twitter.svg"></a>
+			<a href='https://instagram.com/protestsportswear'><img src="./images/insta.svg"></a>
+			<a href='https://www.youtube.com/ProtestMovieChannel'><img src="./images/youtube.svg"></a>
+			<a href='https://vimeo.com/protestsportswear'><img src="./images/vimeo.svg"></a>
+			<a href='https://pinterest.com/protestsports'><img src="./images/pinterest.png"></a>
 		</div>
 		<div class="col-md-4">
-		<ul>
-			<li>2016 DEKKER OLIFANTA BV / PROTEST</li>
-			</ul>
-		</div>
+			<p>2016 DEKKER OLIFANTA BV / PROTEST</p>
+			</div>
 		<div class="col-md-4">
-		<ul>
-			<li>STAY WITH US:</li>
-			<li>SUBSCRIBE BOX</li>
-			</ul>
-		</div>
+			<p>STAY WITH US:</p>
+			<p>SUBSCRIBE</p>
+			</div>
 
 	</section>
 
@@ -90,7 +99,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
+<!-- <script src="./vendor/slick/slick.js"></script>
+<script src="./vendor/angular-slick.js"></script> -->
+
+
 <script src='./bundle.js'></script>
+
+
 
 </body>
 

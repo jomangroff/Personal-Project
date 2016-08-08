@@ -1,21 +1,77 @@
-
+<section class="admin-top">
 <input type="text" ng-model="newProduct.title">Title
 <textarea ng-model="newProduct.description"></textarea>Description
-<input type="number" ng-model="newProduct.price">
-<select ng-model="newProduct.category">
+<input type="number" ng-model="newProduct.price">Price
+<select ng-model="newProduct.category">Category
 	<option value="Men">Men</option>
 	<option value="Women">Women</option>
 	<option value="Kids">Kids</option>
 </select>
 <input type="text" ng-model="newProduct.picture">Picture of Product
 
+
+
 <div ng-repeat="image in newProduct.sideImages track by $index">
 	<input type="text" ng-model="newProduct.sideImages[$index]">Picture of Product
 </div>
 <button ng-click="newProduct.sideImages.push('')">Add Image</button>
 
-
 <button type="button" ng-click="createProduct(newProduct)">Add Product</button>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="admin-middle">
+<input type="text" ng-model="selected.title">Edit Title
+<textarea ng-model="selected.description"></textarea>Edit Description
+<input type="number" ng-model="selected.price">Price
+<select ng-model="selected.category">Category
+	<option value="Men">Men</option>
+	<option value="Women">Women</option>
+	<option value="Kids">Kids</option>
+</select>
+<input type="text" ng-model="selected.picture">Edit Picture of Product
+
+
+<div ng-repeat="image in selected.sideImages track by $index">
+	<input type="text" ng-model="selected.sideImages[$index]">Edit Picture of Product
+</div>
+<button ng-click="selected.sideImages.push('')">Add Edited Images</button>
+
+
+<button type="button" ng-click="editProduct(selected._id, selected)">Edit Product</button>
+
+</section>
+
+
+
+
+
+
+
+
+<section class="admin-low">
+
+	<section class="three-container">
+	<section ng-repeat="product in products" class="third">
+		<admin-dir product="product"selected="selected"></admin-dir>
+	</section>
+</section>
+
+</section>
+
+
+
+
+
 
 <!-- 	title: {type: String, unique: true, required: true},
 	description: {type: String, required: true},

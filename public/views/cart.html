@@ -1,15 +1,21 @@
 <section class="cart">
 	<div class="col-md-3 cart">
-	<div ng-repeat="product in cart.items">
+	<div id="crap" ng-repeat="product in cart.items">
 	<img ng-src="{{product.product.picture}}">
 		{{product.product.title}}
-		<button ng-click="removeFromCart(cart._id, product._id)">REMOVE</button>
+		<div class="button">
+			<button ng-click="removeFromCart(cart._id, product._id)">REMOVE</button>
+		</div>
 	</div>
 
 
 
 
 	</div>
-	<span>Total={{cart.total}}</span>
+
 
 </section>
+
+<div class="total">
+	<h2>Total = {{cart.total | currency: "$": 2}}</h2>
+</div>

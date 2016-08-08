@@ -1,4 +1,4 @@
-angular.module('protest', ['ui.router'])
+angular.module('protest', ['ui.router', 'slickCarousel'])
 	.config(function($stateProvider, $urlRouterProvider) {
 
 		$urlRouterProvider.otherwise('/');
@@ -17,7 +17,18 @@ angular.module('protest', ['ui.router'])
 		.state('admin', {
 			url: '/admin',
 			templateUrl: './views/admin.html',
-			controller: 'productCtrl'
+			controller: 'productCtrl',
+			resolve: {
+        user: function(authService, $state) {
+          return authService.getCurrentUser().then(function(response) {
+            if (response.data === null  || response.data.admin === false)
+              $state.go('login');
+            return response.data;
+          }).catch(function(err) {
+            $state.go('login');
+          });
+        }
+      }
 		})
 		.state('women', {
 			url: '/women',

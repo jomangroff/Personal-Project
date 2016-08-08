@@ -12,7 +12,7 @@ angular.module('protest')
 
 		  productSrv.getProductByCategory("Women").then(function(response){
 					$scope.products = response;
-					console.log(987, response);
+					// console.log(987, response);
 				})
 
 			// $scope.products = productSrv.getAllProducts();

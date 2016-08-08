@@ -52,6 +52,17 @@ angular.module('protest')
 			})
 		}
 
+		this.editProduct = function(id, product){
+			return $http({
+				method: "PUT",
+				url: "/api/product/" + id,
+				data: product
+			}).then(function(response){
+				console.log(response.data);
+				return response.data;
+			})
+		}
+
 		this.getProduct = function(id){
 			return $http({
 				method: "GET",

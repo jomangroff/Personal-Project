@@ -11,6 +11,14 @@ angular.module('protest')
 		},
 		scope: {
 			product: "="
+			},
+			link: function(scope,elm,attrs) {
+				elm.on('mouseenter', function() {
+					elm[0].querySelector('.product-title').style.color = '#8ADAF6';
+				}).on('mouseleave', function(){
+					elm[0].querySelector('.product-title').style.color = 'black';
+
+				})
 			}
 		}
 	})

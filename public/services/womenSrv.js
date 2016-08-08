@@ -17,4 +17,4 @@ angular.module('protest')
 		this.getAllProducts = function(){
 			return products;
 		}
-	})
+	});

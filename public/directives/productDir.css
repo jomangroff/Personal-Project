@@ -1,10 +1,21 @@
 
 .three-left {
  	height: 580px;
- 	/*justify-content: flex-end;
-	flex-wrap: wrap;*/
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: center;
  }
 
-.col-md-3 img{
+.three-left img:hover{
+	-webkit-transform:scale(1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.05); /* Firefox */
+    -ms-transform:scale(1.05); /* IE 9 */
+    -o-transform:scale(1.05); /* Opera */
+     transform:scale(1.05);
+  margin-bottom: 10px;
+  transition: all ease 0.5s;
+}
 
+.hover {
+	color: blue;
 }

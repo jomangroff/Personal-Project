@@ -2,7 +2,7 @@ angular.module('protest')
 	.controller('homeCtrl', function($scope, productSrv, cartSrv, authService){
 			productSrv.getProducts().then(function(response){
 				$scope.products = response;
-				console.log(123456, response);
+				// console.log(123456, response);
 			})
 			$scope.addToCart = function(product){
 				cartSrv.addToCart(product);

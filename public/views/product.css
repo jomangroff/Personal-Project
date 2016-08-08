@@ -49,15 +49,21 @@
 	align-items: flex-start;
 }
 
+@media {
+	.top-right-info {
+		padding-right: 90px;
+	}
+}
+
 .bottom-right-info {
 	margin-left: auto;
 	align-items: flex-end;
 }
 
 
-.fit {
+/*.fit {
 	display: flex;
-	margin: auto;
+	margin: 30px;
 }
 
 .fit h2 {
@@ -65,7 +71,7 @@
 }
 .fit img{
 	margin: auto;
-}
+}*/
 
 .look {
 	display: flex;
@@ -73,7 +79,7 @@
 }
 
 .look h1{
-	margin: auto;
+	margin: 30px auto 30px auto;
 }
 
 .look-img{

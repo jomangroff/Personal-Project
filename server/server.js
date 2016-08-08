@@ -11,7 +11,7 @@ var User = require('./schemas/userSch.js');
 var productCtrl = require('./backControllers/productCtrl');
 var loginCtrl = require('./backControllers/loginPageCtrl.js');
 
-mongoose.connect('mongodb://localhost/protest', function(err) {
+mongoose.connect('mongodb://localhost:27017/protest', function(err) {
 	if(err) throw err;
 });
 
@@ -20,6 +20,10 @@ var isAuthed = function(req, res, next) {
   return next();
 };
 
+var isAdmin = function(req, res, next) {
+  if(!req.user.admin)  return res.status(401).send();
+  return next();
+}
 
 var app = express();
 app.use(express.static(__dirname+'./../public'));
@@ -56,20 +60,21 @@ passport.use(new LocalStrategy(
 
 var port = 3000;
 
-app.get('/api/cart', cartCtrl.read);
-app.get('/api/cart/:id', cartCtrl.read);
-app.post('/api/cart', cartCtrl.create);
+app.get('/api/cart', isAuthed, cartCtrl.read);
+app.get('/api/cart/:id', isAuthed, cartCtrl.read);
+app.post('/api/cart', isAuthed, cartCtrl.create);
 app.put('/api/cart', isAuthed, cartCtrl.update);
-app.delete('/api/cart/:id', cartCtrl.destroy);
-app.put('/api/cart/:id/:product_id', cartCtrl.delete);
+app.delete('/api/cart/:id', isAuthed, cartCtrl.destroy);
+app.put('/api/cart/:id/:product_id', isAuthed, cartCtrl.delete);
 
-app.post('/api/product', productCtrl.create);
+app.post('/api/product', isAuthed, isAdmin, productCtrl.create);
 app.get('/api/product', productCtrl.read);
 // app.get('/api/product',)
 // app.get('/api/product')
 app.get('/api/product/:id', productCtrl.show);
-app.put('/api/product/:id', productCtrl.update);
-app.delete('/api/product/:id', productCtrl.destroy);
+app.put('/api/product/:id', isAuthed, isAdmin, productCtrl.update);
+app.delete('/api/product/:id', isAuthed, isAdmin, productCtrl.destroy);
+app.put('/api/product/:id', isAuthed, isAdmin, productCtrl.edit);
 
 
 // app.post('/api/login', loginCtrl.login);

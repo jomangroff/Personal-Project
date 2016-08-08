@@ -7,6 +7,7 @@
 }
 
 .login-bar {
+	padding: 90px 0 0 700px;
 	width: 75%;
 	height: 300px;
 	align-items: flex-end;
@@ -14,9 +15,20 @@
 }
 
 .create-box {
+	padding: 90px 0 0 700px;
 	width: 75%;
 	height: 300px;
 	align-items: flex-end;
 	background-color: white;
+}
+
+@media {
+	.login-bar {
+		padding: 90px 0 0 0px;
+	}
+
+	.create-box {
+		padding: 90px 0 0 0px;
+	}
 }
 

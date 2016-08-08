@@ -1,10 +1,24 @@
 .cart {
 	display: flex;
+	/*flex-wrap: wrap;*/
 	justify-content: center;
 	flex-direction: row;
-	height: 600px;
+	/*height: 600px;*/
 }
 
-.col-md-3 cart {
+/*.col-md-3 cart {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 	height: 580px;
+	margin-left: 30px;
+}
+*/
+#crap {
+	padding: 100px;
+}
+
+.total h2{
+	display: flex;
+	justify-content: center;
 }
